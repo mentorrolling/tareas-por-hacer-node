@@ -45,9 +45,29 @@ const crear = (descripcion) => {
     return porHacer
 }
 
-const getListado = () => {
+const getListado = (valor) => {
+    cargarDB()
+    switch (valor) {
+        case 'true':
+            valor = true
+            break;
+        case 'false':
+            valor = false
+            break;
+        default:
+            valor = true
+            break;
+    }
 
-    return listadoHacer = require('../db/data.json')
+    let resultado = listadoHacer.filter(function(item) {
+        return item.completado === valor
+    })
+
+    return resultado
+
+
+
+    // return listadoHacer = require('../db/data.json')
 }
 
 const actualizar = (descripcion, completado) => {

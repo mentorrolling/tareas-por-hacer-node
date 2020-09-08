@@ -13,13 +13,15 @@ switch (comando) {
         break;
     case 'listar':
 
-        let listado = getListado();
+        let listado = getListado(argv.completado);
+
+
         console.log('======Por hacer======'.green)
 
         for (let tarea of listado) {
-            console.log(tarea.descripcion)
-            console.log('Estado:', tarea.completado)
-            console.log('-----------------'.green)
+            console.log(`${tarea.completado ? '[X]'.green : '[ ]'.red}`, tarea.descripcion)
+                // console.log('Estado:', tarea.completado)
+
         }
 
         console.log('====================='.green)
